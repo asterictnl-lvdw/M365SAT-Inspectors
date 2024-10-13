@@ -102,10 +102,8 @@ function Inspect-CISMEx2114
 		
 		if ($MissingCount -gt 0) {
 			foreach ($fpolicy in $ExtensionReport) {
-				Write-Host "$($fpolicy.Identity)"
 				$MissingExtensions = $fpolicy.MissingExtensions.Split(",")
-				Write-Host "There are: $($MissingExtensions.Count) missing"
-				$Violation += "$(fpolicy.Identity) is missing the following extension filters: $($fpolicy.MissingExtensions) \n"
+				$Violation += "$($fpolicy.Identity) is missing the following extension filters: $($fpolicy.MissingExtensions) \n"
 			}
 		}
 		
